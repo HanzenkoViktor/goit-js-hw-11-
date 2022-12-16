@@ -1,0 +1,117 @@
+.load-more {
+  position: relative;
+  & span,
+  & button {
+    display: block;
+    height: 50px;
+  }
+
+  & span {
+    margin: 10px auto;
+    width: 50px;
+    border: 7px dashed #2196f3;
+    border-radius: 50%;
+    animation-name: loader;
+    animation-timing-function: ease-in-out;
+    animation-duration: 3000ms;
+    animation-iteration-count: infinite;
+  }
+
+  & button {
+    position: absolute;
+    display: block;
+    width: max-content;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    margin-top: 20px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #7d8f8a;
+    border: 0;
+    outline: 0;
+    padding: 15px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.05);
+    font: inherit;
+    font-weight: 500;
+    transition: background-color 250ms ease-in-out, box-shadow 250ms ease-in-out;
+  }
+
+  & button:hover,
+  & button:focus {
+    box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.15);
+    background-color: #7d8f8a;
+  }
+
+  &.is-loading {
+    & span {
+      opacity: 1;
+      visibility: 1;
+      transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+    }
+
+    & button {
+      opacity: 0;
+      visibility: 0;
+      pointer-events: none;
+    }
+  }
+
+  &.is-loading-hidden {
+    & span {
+      opacity: 0;
+      visibility: 0;
+      pointer-events: none;
+    }
+
+    & button {
+      opacity: 1;
+      visibility: 1;
+      pointer-events: all;
+      transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+    }
+  }
+}
+
+@keyframes loader {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.stop-load {
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: #1a1919;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+
+  & a {
+    text-decoration: none;
+    font: inherit;
+    font-size: inherit;
+    background-color: #7d8f8a;
+    color: #ffffff;
+    border: 0;
+    outline: 0;
+    padding: 8px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.05);
+    font-weight: 500;
+    transition: background-color 250ms ease-in-out, box-shadow 250ms ease-in-out;
+  }
+  & a:hover,
+  & a:focus {
+    box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.15);
+    background-color: #7d8f8a;
+  }
+}
